@@ -1,0 +1,27 @@
+<h3>Book List</h3>
+    <span>Có {{books.length}} cuốn sách
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a [routerLink]="['/create-book/']">Thêm Sách Mới</a>
+<table border="1" >
+  <tr>
+    <th>Mã sách</th>
+    <th>Tên sách</th>
+    <th>Tác Giả</th>
+    <th> Action</th>
+  </tr>
+  <ng-container *ngFor="let book of books">
+    <tr>
+      <td>{{book.id}}</td>
+      <td><a [routerLink]="['/book-details/', book.id]">{{book.title}}</a></td>
+      <td>{{book.author}}</td>
+      <td>
+        <a [routerLink]="['/update-book/',book.id]">Edit </a> |
+        <a [routerLink]="['/delete-book/',book.id]"> Delete</a>
+      </td>
+    </tr>
+  </ng-container>
+</table>
